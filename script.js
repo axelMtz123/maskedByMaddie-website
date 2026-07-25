@@ -12,6 +12,7 @@ gsap.set (menu, { xPercent: 100,})
 
 menuTl
     .to(menu, { xPercent: 0, duration: 0.6, ease: "power2.inOut" })
+    .from(navItems, { xPercent: 50, duration: 0.6, ease: "bounce2.inOut", stagger: 0.1 }, "<")
 
 hambuger.addEventListener("click", () => {
     hambuger.classList.toggle("active");
