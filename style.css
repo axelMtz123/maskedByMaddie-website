@@ -235,12 +235,13 @@ nav {
 
 /* --- Hero Section --- */
 
-.hero {
+#hero {
   min-height: 100vh;
   width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   position: relative;
 }
 
@@ -251,7 +252,6 @@ nav {
   width: 100%;
   height: 100%;
   z-index: -1;
-  opacity: .5;
 }
 
 .hero-bg img {
@@ -266,7 +266,6 @@ nav {
   max-width: var(--width-contained);
   height: 100%;
   display: grid; 
-  justify-self: center;
   grid-template-columns: 1fr 1fr;
   position: relative;
 }
@@ -298,7 +297,7 @@ nav {
 }
 
 .hero-img img {
-  width: clamp(380px, 35vw, 450px);
+  width: clamp(365px, 35vw, 450px);
   height: auto;
   aspect-ratio: 3 / 4;
 }
