@@ -212,10 +212,12 @@ ScrollTrigger.matchMedia({
 gsap.from("#about .img-wrapper", {
   xPercent: 100,
   ease: "power2.out",
+  opacity: 0,
+  duration: 0.6,
   scrollTrigger: {
     trigger: "#about",
     start: "top 80%",
-    end: "top 10%",
+    end: "top 40%",
     scrub: true,
   }
 });
