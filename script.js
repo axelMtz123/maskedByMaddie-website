@@ -36,6 +36,8 @@ navItems.forEach((item) => {
     })        
 });
 
+/* -- hero --*/
+
 ScrollTrigger.create({
   trigger: "#artist-intro",
   start: "center 80%",
@@ -87,6 +89,24 @@ cta.addEventListener("mouseenter", () => {
   );
 });
 
+gsap.from (".hero-img", ({
+  yPercent: -100,
+  ease: "power2.out",
+  duration: .6,
+}))
+
+const splitH1 = new SplitType("#hero h1", {
+  types: "chars"
+});
+
+gsap.from(
+  splitH1.chars,
+  { y: 100,
+    stagger: 0.05,
+    ease: "power2.out",
+    duration: 0.6
+   },
+);
 /* gallery */
 
 const galleryImgs = document.querySelectorAll(".img-wrapper");
@@ -186,3 +206,30 @@ ScrollTrigger.matchMedia({
   });
   }
 })
+
+/* -- about -- */
+
+gsap.from("#about .img-wrapper", {
+  xPercent: 100,
+  ease: "power2.out",
+  scrollTrigger: {
+    trigger: "#about",
+    start: "top 80%",
+    end: "top 10%",
+    scrub: true,
+  }
+});
+
+const aboutSplitH2 = new SplitType("#about h2", {
+  types: "chars"
+});
+
+gsap.from(aboutSplitH2.chars, {
+  yPercent: 100,
+  ease: "power2.out",
+  duration: 0.6,
+  stagger: 0.1,
+  scrollTrigger: {
+    trigger: "#about",
+  }
+});

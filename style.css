@@ -313,13 +313,14 @@ nav {
   font-size: var(--fs-31);
 }
 
+
 .hero-title {
   font-family: var(--ff-display);
   font-size: clamp(4.5rem, 12vw, 9.375rem);
   font-weight: 600;
   font-style: italic;
   line-height: .75;
-
+  overflow :hidden;
 }
 
 .cta {
@@ -384,6 +385,7 @@ nav {
   align-items: center;
   justify-content: center;
   position: relative;
+  overflow: hidden;
 }
 
 .gallery-container {
@@ -454,5 +456,81 @@ nav {
 
   .img-wrapper {
     width: 80%;
+  }
+}
+
+#about {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-container {
+  width: 100%;
+  max-width: var(--width-contained);
+  height: 100%;
+  display: grid; 
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  margin-top: var(--space-96);
+}
+
+.about-container img {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  object-fit: cover;
+}
+
+.about-container img:hover {
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+}
+
+#about .img-wrapper {
+  justify-self: end;
+}
+
+#about h2 {
+  font-family: var(--ff-display);
+  font-size: var(--fs-91);
+  font-weight: 200;
+  line-height: 1;
+  overflow: hidden;
+}
+
+.about-title p {
+  font-size: var(--fs-25);
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-40);
+}
+
+.about-text {
+  color: var(--color-text-alt);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-32);
+  font-size: var(--fs-20);
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    grid-template-columns: 1fr; 
+    max-width: var(--inline-margin);
+    row-gap : var(--space-40);
+  }
+
+  #about .img-wrapper {
+    justify-self: center;
+    grid-row: 1 / 2;
   }
 }
