@@ -3,7 +3,7 @@ gsap.registerPlugin(Flip, ScrollTrigger);
 /* -- menu -- */
 
 const menu = document.querySelector(".nav-menu");
-const navItems = document.querySelectorAll(".nav-menu li");
+const navItems = document.querySelectorAll(".nav-menu li a");
 const hambuger = document.querySelector(".hamburger");
 
 const menuTl = gsap.timeline({ paused: true, reversed: true });
@@ -27,6 +27,12 @@ hambuger.addEventListener("click", () => {
 navItems.forEach((item) => {
     item.addEventListener("click", () => {
         hambuger.classList.remove("active");
+
+        if (menuTl.reversed()) {
+          menuTl.play();
+        } else {
+          menuTl.reverse();
+        }
     })        
 });
 
@@ -80,3 +86,103 @@ cta.addEventListener("mouseenter", () => {
     }
   );
 });
+
+/* gallery */
+
+const galleryImgs = document.querySelectorAll(".img-wrapper");
+const gallery = document.querySelector("#gallery");
+const galleryTitle = document.querySelector("#gallery h2");
+
+ScrollTrigger.matchMedia({
+  "(min-width: 769px)": () => {
+
+    gsap.from ("#gallery h2 span", {
+    xPercent: -100,
+    stagger: 0.1,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: gallery,
+      start: "top 80%",
+      end: "top 10%%",
+      scrub: true,
+    }
+  })
+
+  gsap.utils.toArray('.gallery-container > div:nth-of-type(odd)').forEach((el) => {
+    gsap.from(el, {
+      opacity: 0,
+      x: -200,
+      duration: 1,
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 90%',
+        end: 'top 10%',
+        toggleActions: 'play none none reverse',
+        scrub: true,
+      }
+    });
+  });
+
+  gsap.utils.toArray('.gallery-container > div:nth-of-type(even)').forEach((el) => {
+    gsap.from(el, {
+      x: 200,
+      opacity: 0,
+      duration: 1,
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 80%',
+        end: 'top 10%',
+        toggleActions: 'play none none reverse',
+        scrub: true,
+      }
+    });
+  });
+  }
+})
+
+ScrollTrigger.matchMedia({
+  "(max-width: 769px)": () => {
+
+    gsap.from ("#gallery h2 span", {
+    xPercent: -100,
+    stagger: 0.1,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: gallery,
+      start: "top 80%",
+      end: "top 50%%",
+      scrub: true,
+    }
+  })
+
+  gsap.utils.toArray('.gallery-container > div:nth-of-type(odd)').forEach((el) => {
+    gsap.from(el, {
+      opacity: 0,
+      x: -200,
+      duration: 1,
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 90%',
+        end: 'top 70%',
+        toggleActions: 'play none none reverse',
+        scrub: true,
+      }
+    });
+  });
+
+  gsap.utils.toArray('.gallery-container > div:nth-of-type(even)').forEach((el) => {
+    gsap.from(el, {
+      x: 200,
+      opacity: 0,
+      duration: 1,
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 80%',
+        end: 'top 70%',
+        toggleActions: 'play none none reverse',
+        scrub: true,
+      }
+    });
+  });
+  }
+})

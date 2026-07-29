@@ -177,8 +177,9 @@ nav {
     background-color: var(--color-bg);
 }
 
-.logo { 
+.logo img { 
   margin-top: var(--space-32);
+  width: 200px;
 }
 
 .nav-menu {
@@ -245,7 +246,7 @@ nav {
   position: relative;
 }
 
-.hero-bg {
+.texture-bg {
   position: absolute;
   top: 0;
   left: 0;
@@ -254,7 +255,7 @@ nav {
   z-index: -1;
 }
 
-.hero-bg img {
+.texture-bg img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -336,6 +337,7 @@ nav {
   transition: all 0.3s ease-in-out;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
   overflow: hidden;
+  border: 2px solid var(--color-bg);
 }
 
 .cta:hover {
@@ -371,5 +373,86 @@ nav {
 
   .marquee {
     grid-row: 2 / 3;
+  }
+}
+
+#gallery {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.gallery-container {
+  width: 100%;
+  max-width: var(--width-contained);
+  height: 100%;
+  display: grid; 
+  align-items: center;
+  row-gap: var(--space-64);
+  grid-template-columns: repeat(2, 1fr);
+  position: relative;
+  margin-top: var(--space-96);
+}
+
+#gallery h2 {
+  justify-self: start;
+  font-size: var(--fs-76);
+  font-family: var(--ff-display);
+  font-weight: 200;
+  color: var(--color-text);
+  line-height: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#gallery h2 span:first-child {
+  transform: rotate(-8deg);
+}
+
+#gallery h2 span:last-child {
+  padding-left: var(--space-40);
+  font-weight: 600;
+}
+
+.gallery-container > .img-wrapper:nth-child(even) {
+  justify-self: end;
+}
+
+.gallery-container img {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.gallery-container img:hover {
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+}
+
+@media (max-width: 768px) {
+  .gallery-container {
+    grid-template-columns: 1fr; 
+    max-width: var(--inline-margin);
+    row-gap : var(--space-40);
+  }
+
+  .gallery-container > .img-wrapper:nth-child(even) {
+    justify-self: end;
+  }
+
+  .gallery-container > .img-wrapper:nth-child(odd) {
+    justify-self: start;
+  }
+
+  .img-wrapper img {
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .img-wrapper {
+    width: 80%;
   }
 }
