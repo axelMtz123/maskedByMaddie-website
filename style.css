@@ -534,3 +534,254 @@ nav {
     grid-row: 1 / 2;
   }
 }
+
+#contact {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-container {
+  width: 100%;
+  max-width: var(--width-contained);
+  height: 100%;
+  display: grid; 
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+}
+
+#contact .img-wrapper {
+  justify-self: end;
+}
+
+.booking-card {
+  background-color: var(--color-bg);
+  box-shadow: var(--shadow-medium);
+  border-radius: var(--radius-md);
+  padding: var(--space-32);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-24);
+  max-width: 600px;
+  min-height: 500px;
+}
+
+#contact p {
+  color: var(--color-text-alt);
+}
+
+#contact h2 {
+  font-family: var(--ff-display);
+  font-size: var(--fs-39);
+  font-weight: 600;
+  line-height: 1;
+  overflow: hidden;
+  margin-bottom: var(--space-32);
+}
+
+#contact form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-32);
+  margin-left : var(--space-40);
+}
+
+.booking-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+#contact a {
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+#contact a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-text-alt);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+#contact a:hover::after {
+  transform: scaleX(1);
+}
+
+input, textarea {
+  padding: var(--space-16);
+  border-radius: var(--radius-md);
+  border: none;
+  background-color: var(--color-bg);
+  box-shadow: var(--shadow-medium);
+}
+
+form button {
+  align-self: center;
+  padding: var(--space-8) var(--space-32);
+  font-family: var(--ff-display);
+  font-size: var(--fs-25);
+  position: relative;
+  border: none;
+  background: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+form button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-text);
+  transform-origin: center;
+  transition: transform 0.3s ease-in-out;
+  transform: scaleX(.5);
+}
+
+form button:hover::after {
+  transform: scaleX(1);
+}
+
+form button:hover {
+  transform: scale(1.1);
+  padding-left: var(--space-40);
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    grid-template-columns: 1fr; 
+    max-width: var(--inline-margin);
+    row-gap : var(--space-40);
+    margin-top: var(--space-96);
+  }
+
+  #contact .img-wrapper {
+    justify-self: center;
+    grid-row: 2 / 3;
+  }
+
+  #contact form {
+    margin-left : 0;
+  }
+}
+
+/* -- footer -- */ 
+
+footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: var(--space-32);
+  border-top: 2px solid var(--color-text-alt);
+}
+
+.footer-container {
+  width: 100%;
+  max-width: var(--width-contained);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding-bottom: var(--space-32);
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: var(--space-16);
+}
+
+.social-links a {
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.social-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-text-alt);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.social-links a:hover::after {
+  transform: scaleX(1);
+}
+
+.social-links h3 {
+  font-family: var(--ff-display);
+  font-size: var(--fs-31);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.footer-extra {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.footer-extra a {
+  text-decoration: underline;
+  color: var(--color-text-alt);
+}
+
+.copyright {
+  border-top: 2px solid var(--color-text-alt);
+  justify-self: center;
+  align-self: center;
+  width: 100%;
+  padding: var(--space-16) 0;
+  text-align: center;
+}
+
+.copyright a {
+  text-decoration: underline;
+  color: var(--color-text-alt);
+}
+
+@media (max-width: 768px) {
+  footer {
+    margin-top: var(--space-96);
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr; 
+    max-width: var(--inline-margin);
+    row-gap : var(--space-40);
+  }
+
+  .footer-extra p:last-child {
+    text-align: center;
+  }
+
+  .social-links {
+    align-items: center;
+  }
+  
+  .footer-logo img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
