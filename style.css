@@ -993,4 +993,8 @@ footer {
   .card-inner {
     height: 50px;
   }
+
+  .card-content {
+    padding: 0 var(--space-16);
+  }
 }
