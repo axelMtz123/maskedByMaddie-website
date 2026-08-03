@@ -996,5 +996,10 @@ footer {
 
   .card-content {
     padding: 0 var(--space-16);
+    gap: var(--space-16);
+  }
+
+  .card-text p {
+    font-size: var(--fs-16);
   }
 }
